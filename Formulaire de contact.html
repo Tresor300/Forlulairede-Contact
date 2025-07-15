@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<HTML LANG="fr">
+    <HEAD>
+        <META CHARSET="UTF-8">
+        <TITLE>FORMULAIRE DE CONATACT</TITLE>
+        <LINK TITLE="format" REL="stylesheet" HREF="Format du formulaire.css"> 
+    </HEAD>
+    <BODY>
+        <H1 ID="titre">Bienvenue sur la plateforme d'inscription en ligne</H1><BR>
+        <FIELDSET ID="block" SIZE="50%">
+            <FORM ACTION="https://formsubmit.co/richardvira3@gmail.com" METHOD="post"  >
+                <P>Nom<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="text" SIZE="20" PLACEHOLDER="Entrez votre nom" NAME="nom" required></P><BR>
+                <p>Prénom<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="text" SIZE="20" PLACEHOLDER="Entrez votre prénom" NAME="prénom" required></p><BR>
+                <p>Date de naissance<SPAN CLASS="mark">*</SPAN>:<INPUt TYPE="DATE" NAME="date" REQUIRED MAX="2009-12-31" MIN="2000-01-01" ></p><BR>
+                <P>Email<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="email" size="20" NAME="email" PLACEHOLDER="piere05@gmail.com" required></P><BR> 
+                <P>Numéro de té léphone<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="number" SIZE="20" NAME="numéro de téléphone" required> </P>
+                <P>Quelle est votre motivation <SPAN CLASS="mark">*</SPAN> <BR>
+                    <TEXTAREA NAME="motivation" COLS="40" ROWS="5" PLACEHOLDER="2000 caratère maximum" maxlength="2000" required wrap></TEXTAREA>
+                </P>
+                <P>Pièce d'identié <SPAN CLASS="mark">*</SPAN> <BR>
+                    <INPUT TYPE="file" NAME="une pièce d'identité" required>
+                </P>
+                <P><INPUT TYPE="reset" VAlUE="Annuler" NAME="reset">  <INPUT TYPE="submit" VAlUE="Envoyer" NAME="envoyer" required> </P>
+            </FORM>
+        </FIELDSET>
+    </BODY>
+</HTML>

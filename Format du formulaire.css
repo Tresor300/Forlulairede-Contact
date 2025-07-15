@@ -1,0 +1,34 @@
+html
+{
+   /* background-image:url(Iformulaire.jpeg);*/
+   /* background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;  */ 
+    background-color: rgb(131, 136, 147);               
+}
+#block
+{
+    background-color: rgb(40, 88, 176);
+    padding:2px;
+    margin-top:40px;
+    margin-right:50px;   
+    float:right;
+    border: 1px;
+    width:fit-content;
+    text-align: center;
+    font-family:Garamond;       
+    color:white;
+}
+#titre
+{
+    padding:2px;
+    margin-top:40px;
+    margin-left:50px;   
+    float:left;
+    color:rgb(40, 88, 176);
+    text-align: center;
+}
+.mark
+{
+    color:red;
+}
