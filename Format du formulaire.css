@@ -10,25 +10,24 @@ html
 {
     background-color: rgb(40, 88, 176);
     padding:2px;
-    margin-top:40px;
-    margin-right:50px;   
+    display:block;  
+    margin-right:500px;   
     float:right;
-    border: 1px;
+    border: 50px;
     width:fit-content;
-    text-align: center;
+    text-align:center;
     font-family:Garamond;       
     color:white;
 }
 #titre
 {
     padding:2px;
-    margin-top:40px;
-    margin-left:50px;   
-    float:left;
+    margin:0;  
+    float:center;
     color:rgb(40, 88, 176);
     text-align: center;
 }
 .mark
 {
-    color:red;
+    color:rgb(232, 225, 28);
 }
