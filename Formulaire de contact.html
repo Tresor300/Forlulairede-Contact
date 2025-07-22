@@ -10,19 +10,19 @@
         <FIELDSET ID="block" SIZE="50%">
             <FORM ACTION="Formulaire.php" METHOD="post"  >
                 <P>Nom<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="text" SIZE="20" PLACEHOLDER="Entrez votre nom" NAME="nom" required></P><BR>
-                <p>Prénom<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="text" SIZE="20" PLACEHOLDER="Entrez votre prénom" NAME="prénom" required></p><BR>
+                <p>Prénom<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="text" SIZE="20" PLACEHOLDER="Entrez votre prénom" NAME="prenom" required></p><BR>
                 <p>Date de naissance<SPAN CLASS="mark">*</SPAN>:<INPUt TYPE="DATE" NAME="date" REQUIRED MAX="2009-12-31" MIN="2000-01-01" ></p><BR>
-                <P>Genre:<INPUT TYPE="radio" Name="choix1 " VALUE="HOMME">HOMME
-                    <INPUT TYPE="radio" name="choix2" VALUE="FEMMME">FEMME </P>
+                <P>Genre:<INPUT TYPE="radio" NAME="sex" VALUE="HOMME">HOMME
+                    <INPUT TYPE="radio" NAME="sex" VALUE="FEMME">FEMME </P>
                 <P>Email<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="email" size="20" NAME="email" PLACEHOLDER="piere05@gmail.com" required></P><BR> 
-                <P>Numéro de té léphone<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="number" SIZE="20" NAME="numéro de téléphone" required> </P>
+                <P>Numéro de telephone<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="number" SIZE="20" NAME="numero" required> </P>
                 <P>Quelle est votre motivation <SPAN CLASS="mark">*</SPAN> <BR>
                     <TEXTAREA NAME="motivation" COLS="40" ROWS="5" PLACEHOLDER="2000 caratère maximum" maxlength="2000" required wrap></TEXTAREA>
                 </P>
                 <P>Pièce d'identié <SPAN CLASS="mark">*</SPAN> <BR>
-                    <INPUT TYPE="file" NAME="une pièce d'identité" NAME="file" required>
+                    <INPUT TYPE="file" NAME="doc" required>
                 </P>
-                <P><INPUT TYPE="reset" VAlUE="Annuler" NAME="reset">  <INPUT TYPE="submit" VAlUE="Envoyer" NAME="envoyer" required> </P>
+                <P><INPUT TYPE="reset" VAlUE="Annuler">  <INPUT TYPE="submit" VAlUE="Envoyer" required> </P>
             </FORM>
         </FIELDSET>
     </BODY>
