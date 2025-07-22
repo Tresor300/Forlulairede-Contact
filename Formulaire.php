@@ -6,20 +6,26 @@
     </HEAD>
     <BODY>
         <P>Dans le formulaire précédent, vous avez fourni
-        information suivante: </P>
+        information suivants: </P>
         <?php
             $nom = $_POST["nom"];
-            echo 'nom:'. $_POST["nom"].'<BR>';
-            echo 'prenom:'. $_POST["prenom"].'<BR>';
+            echo 'Nom:'. $_POST["nom"].'<BR>';
+            echo 'Prenom:'. $_POST["prenom"].'<BR>';
             echo 'email:' . $_POST["email"]. '<BR>';
             echo 'Date de naissance:'. $_POST["date"].'<BR>';
-            echo 'Sexe:'. $_POST["sexe"] .'<BR>';
-            echo 'Sexe:'. $_POST["sex2"] .'<BR>';   
+            if(isset ($_POST['sex']))
+            {
+                 echo 'Genre:' .$_POST['sex'] .'<BR>';
+            }
+            else
+            {
+                 echo 'genre non selectionné. <BR>';
+            }
             echo 'Numéro de téléphone:'. $_POST["numero"].'<BR>';
             echo 'Motivation:' .$_POST["motivation"].'<BR>';
-            echo 'pièce identité:' .$_POST["doc"].'<BR>';
+            echo 'Pièce identité:' .$_POST["doc"].'<BR>';
         ?>          
     </BODY>
 </HTML>
- */   
+
         
