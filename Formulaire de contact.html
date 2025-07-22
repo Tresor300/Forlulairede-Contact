@@ -3,15 +3,17 @@
     <HEAD>
         <META CHARSET="UTF-8">
         <TITLE>FORMULAIRE DE CONATACT</TITLE>
-        <LINK TITLE="format" REL="stylesheet" HREF="Format du formulaire.css"> 
+        <LINK TITLE="format" REL="stylesheet" HREF="Format du formulaire.css" MEDIA="all"> 
     </HEAD>
     <BODY>
         <H1 ID="titre">Bienvenue sur la plateforme d'inscription en ligne</H1><BR>
         <FIELDSET ID="block" SIZE="50%">
-            <FORM ACTION="https://formsubmit.co/richardvira3@gmail.com" METHOD="post"  >
+            <FORM ACTION="Formulaire.php" METHOD="post"  >
                 <P>Nom<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="text" SIZE="20" PLACEHOLDER="Entrez votre nom" NAME="nom" required></P><BR>
                 <p>Prénom<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="text" SIZE="20" PLACEHOLDER="Entrez votre prénom" NAME="prénom" required></p><BR>
                 <p>Date de naissance<SPAN CLASS="mark">*</SPAN>:<INPUt TYPE="DATE" NAME="date" REQUIRED MAX="2009-12-31" MIN="2000-01-01" ></p><BR>
+                <P>Genre:<INPUT TYPE="radio" Name="choix1 " VALUE="HOMME">HOMME
+                    <INPUT TYPE="radio" name="choix2" VALUE="FEMMME">FEMME </P>
                 <P>Email<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="email" size="20" NAME="email" PLACEHOLDER="piere05@gmail.com" required></P><BR> 
                 <P>Numéro de té léphone<SPAN CLASS="mark">*</SPAN>:<INPUT TYPE="number" SIZE="20" NAME="numéro de téléphone" required> </P>
                 <P>Quelle est votre motivation <SPAN CLASS="mark">*</SPAN> <BR>
