@@ -25,46 +25,35 @@
             echo 'Motivation:' .$_POST["motivation"].'<BR>';
             echo 'Pièce identité:' .$_POST["filename"].'<BR>';
             var_dump($_FILES);
-            //on vérifie si unfichier à été envoyer
-            if(isset($_FILES["doc"]) && $_FILES["doc"]["error"] === 0)
+
+            $nomOrigine = $_FILES["doc"]["name"];
+            $elementChemin = pathinfo($nomOrigine);
+            $extensionFichier = $elementChemin["extension"];
+            $extensionsAutorisees = array("pdf");
+            if(!(in_array($extensionFichier, $extensionsAutorisees)))
             {
-                //on a recu l'image
-                //on procède aux vérifications
-                //on vérifie toujours l'extension et le type Mime
-                $allowed = ("pdf" == "application/pdf");
-
-                $filename = $_FILES["doc"]["name"];
-                $filetype = $_FILES["doc"]["type"];
-                $filesize = $_FILES["doc"]["size"];
-
-                $extension = pathinfo($filename, PATHINFO_EXTENSION);
-                //on verifie l'absence de l'extension dans les  cles de $allowed ou l'absence du type Mime dans les valeurs
-                
-                    if(is_array($allowed) && array_key_exists($extension, $allowed) && in_array($filetype, $allowed[$extension]))
-                    {
-                        //ici soit l'extension soit le type est incorrect
-                    }
-                    else
-                    {
-                        die("Erreur fomat de fichier incorrect");
-                    }
-
-                    if($filesize >1024 *1024 )
-                    {
-                        die("Fichier trop volumineux");
-                    }
-            }
-                
-             /* if($moveIsOK)
-            {
-                $message = "Le fichier à été uploadé dans ". $cheminEtNomDefinitif;
+                echo "Le fichier n'a pas l'extension attendue";
             }
             else
             {
-                $message = "suite à une erreur , le fichier n 'a pas été uploadé";
-            }*/
+                //copie dans le repertoire du script avec un nom
+                //incluant l'heure a la seconde pres
+                $nomUtilisateur = $_POST["filename"];
+                $repertoireDestination = dirname(__FILE__)."/upload/";
+                $nomDestination = $nomUtilisateur."fichier_du_".date("YmdHis").".".$extensionFichier;
 
-         ?>   
+                if(move_uploaded_file($_FILES["doc"]["tmp_name"], $repertoireDestination.$nomDestination))
+                {
+                    echo "Le fichier temporaire".$_FILES["doc"]["tmp_name"]." a été déplacé vers ".$repertoireDestination.$nomDestination;
+                }
+                else
+                {
+                    echo "Le fichier n'apas été uploadé (trop gros ?) ou"."Le déplacement du fichier temporaire a échoué"." vérifiez l'existence du repertoire ".$repertoireDestination;
+                }
+            }
+            
+            
+        ?>   
 
 
     </BODY>
