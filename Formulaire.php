@@ -24,7 +24,9 @@
             echo 'Numéro de téléphone:'. $_POST["numero"].'<BR>';
             echo 'Motivation:' .$_POST["motivation"].'<BR>';
             echo 'Pièce identité:' .$_POST["filename"].'<BR>';
-            var_dump($_FILES);
+           /* var_dump($_FILES);
+            var_dump($_POST);*/
+
 
             $nomOrigine = $_FILES["doc"]["name"];
             $elementChemin = pathinfo($nomOrigine);
@@ -52,7 +54,49 @@
                 }
             }
             
-            
+           // if($_server["REQUEST_METHOD"] === "POST")
+            //{
+                //Sécurisation basique
+                function clean($val)
+                {
+                    return htmlspecialchars(trim($val));
+                }
+
+                //Récupération des données
+                $nom = clean($_POST["nom"]);
+                $prenom = clean($_POST["prenom"]);
+                $email = clean($_POST["email"]);
+                $date_naissance = clean($_POST["date"]);
+                $Genre = clean($_POST["sex"]);
+                $telephone = clean($_POST["numero"]);
+                $motivation = clean($_POST["motivation"]);
+
+                $fichier_nom = $_FILES["doc"]["name"];
+                $fichier_type = $_FILES["doc"]["type"];
+                $fichier_taille = $_FILES["doc"]["size"] / 1024;
+
+                echo "<H2>Données du formulaire</H2>";
+                echo "<TABLE BORDER='1' CELLPADDING='8'>";
+                echo "<TR><TH>Champ</TH><TH>Valeur</TH></TR>";
+                echo "<TR><TD>NOM</TD><TD>$nom</TD></TR>";
+                echo "<TR><TD>Prénom</TD><TD>$prenom</TD></TR>";
+                echo "<TR><TD>Email</TD><TD>$email</TD></TR>";
+                echo "<TR><TD>Date de naissance</TD><TD>$date_naissance</TD></TR>";
+                if(isset ($_POST['sex']))
+                {
+                    echo "<TR><TD>Genre</TD><TD>$Genre</TD></TR>";
+                }
+                else
+                {
+                    echo "<TR><TD>Genre</TD><TD>genre non selectionné</TD></TR>";
+                }
+                echo "<TR><TD>Numero de téléphone</TD><TD>$telephone</TD></TR>";
+                echo "<TR><TD>Motivation</TD><TD>$motivation</TD><TR>";
+                echo "<TR><TD>Fichier</TD><TD>$fichier_nom</TD><TR>";
+                echo "</TABLE>";
+
+               
+            //}
         ?>   
 
 
