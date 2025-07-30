@@ -54,6 +54,7 @@
                 }
             }
             
+           
                 //Sécurisation basique
                 function clean($val)
                 {
@@ -75,22 +76,27 @@
 
                 echo "<H2>Données du formulaire</H2>";
                 echo "<TABLE BORDER='1' CELLPADDING='8'>";
-                echo "<TR><TH>Champ</TH><TH>Valeur</TH></TR>";
-                echo "<TR><TD>NOM</TD><TD>$nom</TD></TR>";
-                echo "<TR><TD>Prénom</TD><TD>$prenom</TD></TR>";
-                echo "<TR><TD>Email</TD><TD>$email</TD></TR>";
-                echo "<TR><TD>Date de naissance</TD><TD>$date_naissance</TD></TR>";
-                if(isset ($_POST['sex']))
-                {
-                    echo "<TR><TD>Genre</TD><TD>$Genre</TD></TR>";
-                }
-                else
-                {
-                    echo "<TR><TD>Genre</TD><TD>genre non selectionné</TD></TR>";
-                }
-                echo "<TR><TD>Numero de téléphone</TD><TD>$telephone</TD></TR>";
-                echo "<TR><TD>Motivation</TD><TD>$motivation</TD><TR>";
-                echo "<TR><TD>Fichier</TD><TD>$fichier_nom</TD><TR>";
+                echo "<TR>
+                            <TH>NOM</TH>
+                            <TH>Prénom</TH>
+                            <TH>Email</TH>
+                            <TH>Date de naissance</TH>
+                            <TH>Genre</TH>
+                            <TH>Numero de téléphone</TH>
+                            <TH>Motivation</TH>
+                            <TH>Fichier</TH>
+                    </TR>";
+                echo "<TR>
+                        <TD>$nom</TD>
+                        <TD>$prenom</TD>
+                        <TD>$email</TD>
+                        <TD>$date_naissance</TD>
+                        <TD>$Genre</TD>
+                        <TD>$telephone</TD>
+                        <TD>$motivation</TD>
+                        <TD>$fichier_nom</TD>
+                    </TR>";
+                
                 echo "</TABLE>";
 
                 //1. NOM du fichier ou enregitrer ( dans le dossier que to  script)
@@ -103,14 +109,13 @@
                 //si le fichier est vide ou n'existe pas ajoute l'entête BOM
                 if($ajouterBOM)
                 {
-                    fwrite($handle, "\xEF\xBB\xBF"); //BOM UTF-8pour excel
+                    fwrite($handle, "\xEF\xBB\xBF"); //BOM UTF-8pour excel  
                     fputcsv($handle, array("Nom", "Prenom", "Email", "Date de naissance", "Genre", "Téléphone", "Motivation", "Fichier"), ";");
                 }
 
                 fputcsv($handle, array($nom, $prenom, $email, $date_naissance, $Genre, $telephone, $motivation, $fichier_nom), ";");
                 fclose($handle);
-
-                echo "<P><STRONG>Données enregistrées dans '$fichierExport'.</STRONG></P>";
+               echo "<P><STRONG>Données enregistrées dans '$fichierExport'.</STRONG></P>";
         
         ?>   
 
