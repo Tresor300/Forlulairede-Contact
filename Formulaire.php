@@ -54,8 +54,6 @@
                 }
             }
             
-           // if($_server["REQUEST_METHOD"] === "POST")
-            //{
                 //Sécurisation basique
                 function clean($val)
                 {
@@ -95,8 +93,25 @@
                 echo "<TR><TD>Fichier</TD><TD>$fichier_nom</TD><TR>";
                 echo "</TABLE>";
 
-               
-            //}
+                //1. NOM du fichier ou enregitrer ( dans le dossier que to  script)
+                $fichierExport = "formulaire.csv";
+                $ajouterBOM = !file_exists($fichierExport);
+
+                //Ouvre le fichier en mode binaire
+                $handle = fopen($fichierExport, "a+b");
+
+                //si le fichier est vide ou n'existe pas ajoute l'entête BOM
+                if($ajouterBOM)
+                {
+                    fwrite($handle, "\xEF\xBB\xBF"); //BOM UTF-8pour excel
+                    fputcsv($handle, array("Nom", "Prenom", "Email", "Date de naissance", "Genre", "Téléphone", "Motivation", "Fichier"), ";");
+                }
+
+                fputcsv($handle, array($nom, $prenom, $email, $date_naissance, $Genre, $telephone, $motivation, $fichier_nom), ";");
+                fclose($handle);
+
+                echo "<P><STRONG>Données enregistrées dans '$fichierExport'.</STRONG></P>";
+        
         ?>   
 
 
