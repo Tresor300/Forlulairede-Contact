@@ -115,8 +115,51 @@
 
                 fputcsv($handle, array($nom, $prenom, $email, $date_naissance, $Genre, $telephone, $motivation, $fichier_nom), ";");
                 fclose($handle);
-               echo "<P><STRONG>Données enregistrées dans '$fichierExport'.</STRONG></P>";
-        
+                echo "<P><STRONG>Données enregistrées dans '$fichierExport'.</STRONG></P>";
+                
+                echo "<H2>Données récupéré en lecture dans le fichier CSV</H2>";
+                echo "<TABLE BORDER='1' CELLPADDING='8'>";
+                echo "<TR>
+                        <TH>NOM</TH>
+                        <TH>Prénom</TH>
+                        <TH>Email</TH>
+                        <TH>Date de naissance</TH>
+                        <TH>Genre</TH>
+                        <TH>Numéro de téléphone</TH>
+                        <TH>Motivation</TH>
+                        <TH>Fichier</TH>
+                    </TR>";
+                #Lecture du fichier CSV
+                $fichierCSV = "formulaire.csv";
+                if(file_exists($fichierCSV))
+                {
+                    $handle = fopen($fichierCSV, "r");
+                    $ligne_num = 0;
+                    
+                    while(($ligne = fgetcsv($handle, 1000, ";")) !==false)
+                    {
+                        #sauf l'en-tête
+                        if($ligne_num ===0)
+                        {
+                            $ligne_num++;
+                            continue;
+                        }
+                        echo "<TR>";
+                        foreach($ligne as $cellule)
+                        {
+                            echo "<TD>" . htmlspecialchars($cellule) . "</TD>";
+                        }
+                        echo "</TR>";
+                        $ligne_num++;
+                    }
+                    fclose($handle);
+                }
+                else
+                {
+                    echo "<TR><TD colspan='8'> Aucune donnée trouvée .</TD></TR>";
+                }
+
+                echo "</TABLE>";
         ?>   
 
 
